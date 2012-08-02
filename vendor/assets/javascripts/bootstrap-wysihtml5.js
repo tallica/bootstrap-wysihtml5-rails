@@ -20,6 +20,14 @@
                                "<a class='btn' data-wysihtml5-command='underline' title='CTRL+U'><i class='icon-underline'></i></a>" +
                            "</div>" +
                        "</li>",
+        "justify":    "<li>" +
+                           "<div class='btn-group'>" +
+                               "<a class='btn' data-wysihtml5-command='justiftLeft' title='Justify left'><i class='icon-align-left'></i></a>" +
+                               "<a class='btn' data-wysihtml5-command='justifyCenter' title='Justify center'><i class='icon-align-center'></i></a>" +
+                               "<a class='btn' data-wysihtml5-command='justifyRight' title='Justify right'><i class='icon-align-right'></i></a>" +
+                               "<a class='btn' data-wysihtml5-command='justifyFull' title='Justify on both sides'><i class='icon-align-justify'></i></a>" +
+                           "</div>" +
+                       "</li>",
         "lists":       "<li>" +
                            "<div class='btn-group'>" +
                                "<a class='btn' data-wysihtml5-command='insertUnorderedList' title='Unordered List'><i class='icon-list-ul'></i></a>" +
@@ -72,12 +80,19 @@
     var defaultOptions = {
         "font-styles": true,
         "emphasis": true,
+        "justify": false,
         "lists": true,
         "html": false,
         "link": true,
         "image": true,
         events: {},
         parserRules: {
+            classes: {
+              "wysiwyg-text-align-left": 1,
+              "wysiwyg-text-align-center": 1,
+              "wysiwyg-text-align-right": 1,
+              "wysiwyg-text-align-justify": 1
+            },
             tags: {
                 "b":  {},
                 "i":  {},
@@ -106,7 +121,8 @@
                     check_attributes: {
                         href:   "url" // important to avoid XSS
                     }
-                }
+                },
+                "div": 1
             }
         },
         stylesheets: []
