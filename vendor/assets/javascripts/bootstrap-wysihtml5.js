@@ -88,10 +88,10 @@
         events: {},
         parserRules: {
             classes: {
-              "wysiwyg-text-align-left": 1,
-              "wysiwyg-text-align-center": 1,
-              "wysiwyg-text-align-right": 1,
-              "wysiwyg-text-align-justify": 1
+                "wysiwyg-text-align-left": 1,
+                "wysiwyg-text-align-center": 1,
+                "wysiwyg-text-align-right": 1,
+                "wysiwyg-text-align-justify": 1
             },
             tags: {
                 "b":  {},
