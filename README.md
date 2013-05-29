@@ -34,28 +34,25 @@ This gem doesn't include Bootstrap. You can get Bootstrap here: https://github.c
 
 ## Configuration
 
-app/assets/stylesheets/application.css
+Bootstrap-wysihtml5 depends on jquery and bootstrap.
 
+app/assets/stylesheets/application.css
 ``` css
 *= require bootstrap-wysihtml5
 ```
 
-Bootstrap-wysihtml5 depends on jquery and bootstrap-button. Make sure to require it in the manifest file.
-
-``` javascript
-//= require jquery            # Not included
-//= require bootstrap-button  # Not included
-```
-
-Add necessary javascript(s) files to app/assets/javascripts/application.js
-
+app/assets/javascripts/application.js
 ```javascript
-//= require wysihtml5
 //= require bootstrap-wysihtml5
 
-or
+You may include all locales like this:
 
-//= require bootstrap-wysihtml5-all
+//= require bootstrap-wysihtml5/locales
+
+Or just add the ones that you want
+
+//= require bootstrap-wysihtml5/locales/de-DE
+//= require bootstrap-wysihtml5/locales/es-ES
 ```
 
 You may need to restart your rails server.
@@ -65,12 +62,17 @@ You may need to restart your rails server.
 Just call wysihtml5() with any selector.
 
 ```html
-<textarea id="some-textarea" placeholder="Enter text ..."></textarea>
+<textarea id="some-textarea" class='wysihtml5' placeholder="Enter text ..."></textarea>
 	
 <script type="text/javascript">
-	$('#some-textarea').wysihtml5();
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
 </script>
+
 ```
+
+A live example:  http://jsfiddle.net/5UUrg/
 
 ## License
 Copyright (c) 2011 Gonzalo Rodríguez-Baltanás Díaz
